@@ -78,12 +78,15 @@ def start_timer():
         header.config(text="Work", fg="green")
         countdown(WORK_SECONDS)
 
+    window.lift()
+    window.focus_force()
+
 canvas = tk.Canvas(width=SCREEN_WIDTH, height=SCREEN_HEIGHT, bg=BACKGROUND_COLOR, highlightthickness=0)
 # chester = tk.PhotoImage(file="chester.png")
 # chester.width = SCREEN_WIDTH / 4
 # chester.height = SCREEN_HEIGHT / 4
 # canvas.create_image(SCREEN_WIDTH / 2, SCREEN_HEIGHT / 2, image=chester)
-timer_text = canvas.create_text(SCREEN_WIDTH / 2, SCREEN_HEIGHT / 2, text="00:00", fill="white", font=(FONT_NAME, 35, "bold"))
+timer_text = canvas.create_text(SCREEN_WIDTH / 2, SCREEN_HEIGHT / 2, text="00:00", fill="white", font=(FONT_NAME, 96, "bold"))
 canvas.grid(column=1, row=2)
 
 header = tk.Label(text="Pymodoro!", fg="white", bg=BACKGROUND_COLOR, font=(FONT_NAME, 50, "bold"))
@@ -95,7 +98,9 @@ start_button.grid(column=0, row=3)
 reset_button = tk.Button(text="Reset", highlightthickness=0, font=(FONT_NAME, 20, "bold"), command=reset_timer)
 reset_button.grid(column=2, row=3)
 
-checkmarks = tk.Label(fg="white", bg=BACKGROUND_COLOR, font=(FONT_NAME, 20, "bold"))
+checkmarks = tk.Label(fg="green", bg=BACKGROUND_COLOR, font=(FONT_NAME, 42, "bold"))
 checkmarks.grid(column=1, row=4)
 
+window.lift()
+window.focus_force()
 window.mainloop()
